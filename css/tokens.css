@@ -1,0 +1,56 @@
+/* ============================================================
+   TOKENS — Sistema Visual "Dani Santos / Método Voz Livre"
+   Fonte única da verdade para cores, tipografia, espaçamento
+   e animação. Nenhum estilo visual real deve viver aqui —
+   apenas variáveis.
+   ============================================================ */
+
+:root {
+  /* ---- Cores ------------------------------------------------ */
+  --graphite-base: #0e0e10; /* fundo principal de todas as seções */
+  --graphite-elevated: #17171a; /* cards, superfícies levemente destacadas */
+  --graphite-border: #3a3a3e; /* bordas e elementos extremamente discretos */
+
+  --white-warm: #f5f1ea; /* texto principal */
+  --gray-warm: #a8a29a; /* texto secundário / legendas / atribuições */
+
+  --gold-matte: #c9a24b; /* destaque: CTAs, ênfase, nome do método */
+  --amber: #b97a3d; /* acento secundário: glow, onda vocal, hover */
+
+  /* ---- Tipografia -------------------------------------------- */
+  --font-display:
+    "Fraunces", serif; /* headlines, frases de impacto, nome do método */
+  --font-body: "Inter", sans-serif; /* corpo de texto, botões, interface */
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+
+  /* Escala tipográfica (mobile-first; ajustada em responsive.css para telas maiores) */
+  --fs-display: 2rem; /* H1 — Hero, CTA Final, frases de impacto */
+  --fs-heading: 1.5rem; /* H2 — nomes de seção */
+  --fs-subheading: 1.125rem; /* citações */
+  --fs-body: 1rem; /* corpo de texto */
+  --fs-caption: 0.875rem; /* legendas, atribuições, notas técnicas */
+
+  /* ---- Espaçamento --------------------------------------------- */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 1rem; /* 16px */
+  --space-md: 2rem; /* 32px */
+  --space-lg: 4rem; /* 64px */
+  --space-xl: 6rem; /* 96px */
+  --space-2xl: 8rem; /* 128px */
+
+  /* ---- Animação -------------------------------------------------- */
+  --ease-standard: ease-out;
+  --duration-fast: 250ms; /* hover de botões/ícones */
+  --duration-medium: 500ms; /* fade de entrada de texto/imagem */
+  --duration-slow: 5s; /* transições contínuas: onda vocal, coreografia tipográfica */
+  --pulse-cta-final: 3s; /* ciclo completo de pulsação do CTA Final */
+
+  /* ---- Layout ------------------------------------------------------ */
+  --container-max: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+}
