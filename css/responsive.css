@@ -1,0 +1,40 @@
+/* ============================================================
+   RESPONSIVE.CSS — Base responsiva mobile-first
+   Mobile é o padrão (definido em style.css / tokens.css).
+   Aqui só elevamos escala tipográfica e o container conforme
+   a tela cresce. Layout específico de cada seção (grids
+   assimétricos, carrossel, etc.) entra aqui seção por seção,
+   conforme formos implementando.
+
+   Breakpoints do projeto:
+     - até 639px   → mobile (padrão, sem media query)
+     - 640px+      → tablet
+     - 1024px+     → desktop
+   ============================================================ */
+
+/* ---- Tablet (640px+) ------------------------------------------- */
+@media (min-width: 640px) {
+  :root {
+    --fs-display: 2.75rem;
+    --fs-heading: 1.875rem;
+    --fs-subheading: 1.25rem;
+  }
+
+  .section {
+    padding-inline: var(--space-lg);
+  }
+}
+
+/* ---- Desktop (1024px+) ------------------------------------------ */
+@media (min-width: 1024px) {
+  :root {
+    --fs-display: 3.5rem;
+    --fs-heading: 2.25rem;
+    --fs-subheading: 1.375rem;
+  }
+
+  .section {
+    padding-block: var(--space-2xl);
+    padding-inline: var(--space-xl);
+  }
+}
