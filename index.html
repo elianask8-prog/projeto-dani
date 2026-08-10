@@ -26,59 +26,530 @@
   <body>
     <main>
       <!-- 1. Hero — fotografia editorial da Dani, frase de identidade, sem CTA -->
-      <section id="hero" class="section" aria-label="Abertura"></section>
+      <section id="hero" class="hero hero--banner" aria-label="Abertura">
+
+        <header class="hero-header">
+          <div class="hero-header__inner">
+            <a
+              href="#hero"
+              class="hero-header__logo"
+              aria-label="Dani Santos - Início"
+            >
+              <img
+                src="assets/images/logo-dani.png"
+                alt="Dani Santos - Professora de Canto"
+              />
+            </a>
+
+            <nav class="hero-header__nav" aria-label="Navegação principal">
+              <a href="#hero">Início</a>
+              <a href="#conheca-a-dani">Sobre</a>
+              <a href="#escolha-sua-jornada">Aulas</a>
+              <a href="#metodo">Método</a>
+              <a href="#depoimentos">Depoimentos</a>
+              <a href="#rodape">Contato</a>
+            </nav>
+
+            <a href="#escolha-sua-jornada" class="hero-header__cta">
+              Agendar aula
+            </a>
+          </div>
+        </header>
+
+        <div class="hero__overlay" aria-hidden="true"></div>
+
+        <div class="hero__content"></div>
+      </section>
+
+      <section class="hero-message" aria-label="Mensagem principal">
+        <div class="container">
+          <h1 class="hero-message__headline text-display">
+            Talvez você não seja desafinado. Talvez apenas nunca tenha
+            <span>recebido a orientação certa.</span>
+          </h1>
+        </div>
+      </section>
 
       <!-- 2. A Crença — desconstrução do mito do "desafinado", tipografia pura -->
-      <section id="crenca" class="section" aria-label="A crença"></section>
+      <section
+        id="crenca"
+        class="section belief"
+        aria-labelledby="belief-title"
+      >
+        <div class="container belief__inner">
+          <p class="belief__eyebrow">Talvez a história seja outra.</p>
+
+          <h2 id="belief-title" class="belief__title text-display">
+            E se o problema nunca tivesse sido a sua voz?
+          </h2>
+
+          <p class="belief__text">
+            Afinar não é privilégio de poucos. É uma habilidade que pode ser
+            desenvolvida com orientação, prática e consciência vocal.
+          </p>
+        </div>
+      </section>
 
       <!-- 3. A Transformação — coreografia tipográfica, 3 momentos emocionais -->
       <section
         id="transformacao"
-        class="section"
-        aria-label="A transformação"
-      ></section>
+        class="section transformation"
+        aria-labelledby="transformation-title"
+      >
+        <div class="container transformation__inner">
+          <h2 id="transformation-title" class="visually-hidden">
+            A transformação
+          </h2>
 
+          <div class="transformation__wave" aria-hidden="true">
+            <svg viewBox="0 0 1000 140" preserveAspectRatio="none">
+              <path
+                d="M0,75
+             C90,20 160,125 250,70
+             S420,30 500,80
+             S660,120 750,65
+             S910,25 1000,75"
+              />
+            </svg>
+          </div>
+
+          <div class="transformation__moment transformation__moment--one">
+            <p class="transformation__text">Cantar sem medo de errar.</p>
+          </div>
+
+          <div class="transformation__moment transformation__moment--two">
+            <p class="transformation__text">
+              Terminar uma música do início ao fim com segurança.
+            </p>
+          </div>
+
+          <div class="transformation__moment transformation__moment--three">
+            <p class="transformation__text">Sentir orgulho da própria voz.</p>
+          </div>
+        </div>
+      </section>
       <!-- 4. Conheça a Dani — vídeo institucional sob demanda -->
       <section
         id="conheca-a-dani"
-        class="section"
-        aria-label="Conheça a Dani"
-      ></section>
+        class="section about-dani"
+        aria-labelledby="about-dani-title"
+      >
+        <div class="container about-dani__inner">
+          <div class="about-dani__intro">
+            <p class="about-dani__eyebrow">Conheça a Dani</p>
 
-      <!-- 5. O Método — Método Voz Livre, composição integrada com a onda vocal -->
-      <section id="metodo" class="section" aria-label="O método"></section>
+            <h2 id="about-dani-title" class="about-dani__title text-display">
+              Toda voz tem uma história.
+              <span>Esta é a minha.</span>
+            </h2>
+          </div>
 
+          <div class="about-dani__video-wrap">
+            <video
+              class="about-dani__video"
+              poster="assets/images/video-cover.jpg"
+              preload="metadata"
+            >
+              <source src="assets/video/conheca-a-dani.mp4" type="video/mp4" />
+              Seu navegador não suporta reprodução de vídeo.
+            </video>
+
+            <button
+              class="about-dani__play"
+              type="button"
+              aria-label="Assistir apresentação da Dani Santos"
+            >
+              <span class="about-dani__play-icon" aria-hidden="true">▶</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. O Método — Método Voz Livre -->
+      <section
+        id="metodo"
+        class="section method"
+        aria-labelledby="method-title"
+      >
+        <div class="container method__inner">
+          <div class="method__intro">
+            <p class="method__eyebrow">O Método</p>
+
+            <h2 id="method-title" class="method__title text-display">
+              Método Voz Livre
+            </h2>
+
+            <p class="method__description">
+              Um caminho que une técnica, ciência e sensibilidade para libertar
+              a sua voz.
+            </p>
+          </div>
+
+          <div class="method__map">
+            <div class="method__wave" aria-hidden="true">
+              <svg viewBox="0 0 1000 220" preserveAspectRatio="none">
+                <path
+                  d="M0,120
+               C80,70 120,165 200,115
+               S330,65 400,120
+               S520,170 600,110
+               S730,55 800,115
+               S920,160 1000,105"
+                />
+              </svg>
+            </div>
+
+            <div class="method__pillar method__pillar--technique">
+              <span>Técnica vocal</span>
+            </div>
+
+            <div class="method__pillar method__pillar--musicality">
+              <span>Musicalidade</span>
+            </div>
+
+            <div class="method__pillar method__pillar--science">
+              <span>Ciência da voz</span>
+              <small>
+                Estudos em Fonoaudiologia aplicados ao desenvolvimento vocal.
+              </small>
+            </div>
+
+            <div class="method__pillar method__pillar--interpretation">
+              <span>Interpretação</span>
+            </div>
+
+            <div class="method__pillar method__pillar--identity">
+              <span>Identidade vocal</span>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- 6. Mini Prova Social — uma única citação, tratamento tipográfico -->
       <section
         id="mini-prova-social"
-        class="section"
-        aria-label="O que dizem sobre a Dani"
-      ></section>
+        class="section social-proof-mini"
+        aria-labelledby="mini-proof-title"
+      >
+        <div class="container social-proof-mini__inner">
+          <h2 id="mini-proof-title" class="visually-hidden">
+            Experiência de aluna
+          </h2>
+
+          <blockquote class="social-proof-mini__quote">
+            <span class="social-proof-mini__mark" aria-hidden="true">“</span>
+
+            <p>
+              Eu sempre tive muita insegurança com a minha voz. Com a Dani,
+              comecei a enxergar meu potencial de outra forma.
+            </p>
+
+            <footer class="social-proof-mini__author">
+              — Depoimento demonstrativo
+            </footer>
+          </blockquote>
+        </div>
+      </section>
 
       <!-- 7. Escolha sua Jornada — apresentação comercial dos dois cursos -->
       <section
         id="escolha-sua-jornada"
-        class="section"
-        aria-label="Escolha sua jornada"
-      ></section>
+        class="section journeys"
+        aria-labelledby="journeys-title"
+      >
+        <div class="container journeys__inner">
+          <div class="journeys__intro">
+            <h2 id="journeys-title" class="journeys__title text-heading">
+              Toda grande transformação começa com o primeiro passo.
+            </h2>
+
+            <p class="journeys__description">
+              Escolha o caminho que melhor representa o momento da sua voz hoje.
+            </p>
+          </div>
+
+          <div class="journeys__grid">
+            <article class="journey-card journey-card--primary">
+              <span class="journey-card__label">Jornada 01</span>
+
+              <h3 class="journey-card__title">Do Zero ao Canto em 7 Dias</h3>
+
+              <p class="journey-card__text">
+                Para quem quer construir uma base, desenvolver a voz e começar a
+                cantar com mais segurança.
+              </p>
+
+              <a
+                class="btn-primary journey-card__cta"
+                href="#"
+                aria-label="Quero começar minha jornada no curso Do Zero ao Canto em 7 Dias"
+              >
+                Quero começar minha jornada
+              </a>
+            </article>
+
+            <article class="journey-card journey-card--secondary">
+              <span class="journey-card__label">Jornada 02</span>
+
+              <h3 class="journey-card__title">
+                Método Avançado de Performance Vocal
+              </h3>
+
+              <p class="journey-card__text">
+                Para quem já canta e quer elevar técnica, interpretação e
+                performance.
+              </p>
+
+              <p class="journey-card__benefit">
+                Benefício exclusivo para alunos do Curso 1.
+              </p>
+
+              <a
+                class="btn-primary journey-card__cta"
+                href="#"
+                aria-label="Quero levar minha voz para outro nível com o Método Avançado de Performance Vocal"
+              >
+                Quero levar minha voz para outro nível
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <!-- 8. Depoimentos — carrossel "Vozes que encontraram seu caminho" -->
       <section
         id="depoimentos"
-        class="section"
-        aria-label="Depoimentos"
-      ></section>
+        class="section testimonials"
+        aria-labelledby="testimonials-title"
+      >
+        <div class="container testimonials__inner">
+          <div class="testimonials__intro">
+            <p class="testimonials__eyebrow">Depoimentos</p>
 
-      <!-- 9. CTA Final — fechamento, eco da Hero, único botão -->
+            <h2
+              id="testimonials-title"
+              class="testimonials__title text-heading"
+            >
+              Vozes que encontraram seu caminho.
+            </h2>
+          </div>
+
+          <div
+            class="testimonials__carousel"
+            aria-label="Depoimentos de alunos"
+          >
+            <div class="testimonials__track">
+              <article class="testimonial-card">
+                <div
+                  class="testimonial-card__stars"
+                  aria-label="Avaliação demonstrativa de 5 estrelas"
+                >
+                  ★★★★★
+                </div>
+                <p class="testimonial-card__quote">
+                  “Eu tinha muita insegurança com a minha voz e comecei a
+                  perceber possibilidades que antes eu não enxergava.”
+                </p>
+                <footer class="testimonial-card__author">
+                  Depoimento demonstrativo
+                </footer>
+              </article>
+
+              <article class="testimonial-card">
+                <div
+                  class="testimonial-card__stars"
+                  aria-label="Avaliação demonstrativa de 5 estrelas"
+                >
+                  ★★★★★
+                </div>
+                <p class="testimonial-card__quote">
+                  “Aprendi a cantar com mais consciência e confiança, sem sentir
+                  que precisava imitar a voz de outra pessoa.”
+                </p>
+                <footer class="testimonial-card__author">
+                  Depoimento demonstrativo
+                </footer>
+              </article>
+
+              <article class="testimonial-card">
+                <div
+                  class="testimonial-card__stars"
+                  aria-label="Avaliação demonstrativa de 5 estrelas"
+                >
+                  ★★★★★
+                </div>
+                <p class="testimonial-card__quote">
+                  “Eu já cantava, mas sentia que faltava técnica. A orientação
+                  mudou a forma como trabalho minha voz.”
+                </p>
+                <footer class="testimonial-card__author">
+                  Depoimento demonstrativo
+                </footer>
+              </article>
+
+              <article class="testimonial-card">
+                <div
+                  class="testimonial-card__stars"
+                  aria-label="Avaliação demonstrativa de 5 estrelas"
+                >
+                  ★★★★★
+                </div>
+                <p class="testimonial-card__quote">
+                  “Passei a entender melhor minha respiração, minha afinação e
+                  principalmente minha própria identidade vocal.”
+                </p>
+                <footer class="testimonial-card__author">
+                  Depoimento demonstrativo
+                </footer>
+              </article>
+
+              <article class="testimonial-card">
+                <div
+                  class="testimonial-card__stars"
+                  aria-label="Avaliação demonstrativa de 5 estrelas"
+                >
+                  ★★★★★
+                </div>
+                <p class="testimonial-card__quote">
+                  “Hoje consigo cantar com muito mais segurança e aproveitar a
+                  música sem ficar presa ao medo de errar.”
+                </p>
+                <footer class="testimonial-card__author">
+                  Depoimento demonstrativo
+                </footer>
+              </article>
+
+              <article class="testimonial-card">
+                <div
+                  class="testimonial-card__stars"
+                  aria-label="Avaliação demonstrativa de 5 estrelas"
+                >
+                  ★★★★★
+                </div>
+                <p class="testimonial-card__quote">
+                  “A técnica passou a fazer sentido quando comecei a entender o
+                  que realmente estava acontecendo com a minha voz.”
+                </p>
+                <footer class="testimonial-card__author">
+                  Depoimento demonstrativo
+                </footer>
+              </article>
+
+              <article class="testimonial-card">
+                <div
+                  class="testimonial-card__stars"
+                  aria-label="Avaliação demonstrativa de 5 estrelas"
+                >
+                  ★★★★★
+                </div>
+                <p class="testimonial-card__quote">
+                  “Percebi que evolução vocal não acontece tentando cantar mais
+                  forte, mas aprendendo a usar melhor a própria voz.”
+                </p>
+                <footer class="testimonial-card__author">
+                  Depoimento demonstrativo
+                </footer>
+              </article>
+
+              <article class="testimonial-card">
+                <div
+                  class="testimonial-card__stars"
+                  aria-label="Avaliação demonstrativa de 5 estrelas"
+                >
+                  ★★★★★
+                </div>
+                <p class="testimonial-card__quote">
+                  “Ganhei segurança para cantar na frente de outras pessoas e
+                  passei a confiar muito mais no que consigo fazer.”
+                </p>
+                <footer class="testimonial-card__author">
+                  Depoimento demonstrativo
+                </footer>
+              </article>
+            </div>
+          </div>
+
+          <div class="testimonials__controls">
+            <button
+              class="testimonials__arrow testimonials__arrow--prev"
+              type="button"
+              aria-label="Ver depoimentos anteriores"
+            >
+              ←
+            </button>
+
+            <button
+              class="testimonials__arrow testimonials__arrow--next"
+              type="button"
+              aria-label="Ver próximos depoimentos"
+            >
+              →
+            </button>
+          </div>
+
+          <p class="testimonials__notice">
+            Conteúdo demonstrativo — será substituído por depoimentos reais.
+          </p>
+        </div>
+      </section>
+      <!-- 9. CTA Final — fechamento da jornada -->
       <section
         id="cta-final"
-        class="section"
-        aria-label="Comece agora"
-      ></section>
+        class="section final-cta"
+        aria-labelledby="final-cta-title"
+      >
+        <div class="container final-cta__inner">
+          <p class="final-cta__eyebrow">Sua voz começa aqui</p>
+
+          <h2 id="final-cta-title" class="final-cta__title text-display">
+            Sua voz não precisa ser outra. Ela precisa ser descoberta.
+          </h2>
+
+          <p class="final-cta__text">
+            O primeiro passo não é cantar perfeito. É começar.
+          </p>
+
+          <a href="#escolha-sua-jornada" class="btn-final">
+            Quero começar minha jornada
+          </a>
+        </div>
+      </section>
     </main>
 
-    <!-- 10. Rodapé — identidade, WhatsApp, Instagram, copyright -->
-    <footer id="rodape" class="section" aria-label="Contato"></footer>
+    <!-- 10. Rodapé — identidade, contato e redes sociais -->
+    <footer id="rodape" class="footer" aria-label="Contato">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <span class="footer__logo">DS</span>
+
+          <div>
+            <p class="footer__name">Dani Santos</p>
+            <p class="footer__role">Professora de Canto • Coach Vocal</p>
+          </div>
+        </div>
+
+        <nav class="footer__contact" aria-label="Canais de contato">
+          <a
+            href="#"
+            class="footer__link"
+            aria-label="Falar com Dani Santos pelo WhatsApp"
+          >
+            WhatsApp
+          </a>
+
+          <a
+            href="#"
+            class="footer__link"
+            aria-label="Acessar o Instagram de Dani Santos"
+          >
+            Instagram
+          </a>
+        </nav>
+      </div>
+
+      <div class="container footer__bottom">
+        <p>© 2026 Dani Santos. Todos os direitos reservados.</p>
+      </div>
+    </footer>
 
     <script src="js/script.js" defer></script>
   </body>

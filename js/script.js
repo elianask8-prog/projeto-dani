@@ -1,48 +1,199 @@
 /* ============================================================
-   SCRIPT.JS — Fundação
-   Nesta etapa: só o essencial para as seções futuras terem
-   uma base pronta. Nenhum comportamento de seção específica
-   (carrossel, coreografia tipográfica, pulsação do CTA) é
-   implementado aqui ainda.
+   SCRIPT.JS — Site Dani Santos
    ============================================================ */
 
-(function () {
-  "use strict";
+/* ------------------------------------------------------------
+   1. PREFERÊNCIA DE MOVIMENTO REDUZIDO
+------------------------------------------------------------ */
+
+const reducedMotionQuery = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+);
+
+window.prefersReducedMotion = reducedMotionQuery.matches;
+
+reducedMotionQuery.addEventListener("change", (event) => {
+  window.prefersReducedMotion = event.matches;
+});
+
+/* ------------------------------------------------------------
+   2. PLAYER — CONHEÇA A DANI
+------------------------------------------------------------ */
+
+const daniVideo = document.querySelector(".about-dani__video");
+const daniPlayButton = document.querySelector(".about-dani__play");
+
+if (daniVideo && daniPlayButton) {
+  daniPlayButton.addEventListener("click", () => {
+    daniVideo.play();
+    daniVideo.controls = true;
+    daniPlayButton.hidden = true;
+  });
+
+  daniVideo.addEventListener("ended", () => {
+    daniVideo.controls = false;
+    daniPlayButton.hidden = false;
+  });
+}
+
+/* ------------------------------------------------------------
+   3. CARROSSEL — DEPOIMENTOS
+------------------------------------------------------------ */
+
+const testimonialsCarousel = document.querySelector(".testimonials__carousel");
+
+const testimonialsTrack = document.querySelector(".testimonials__track");
+
+const testimonialsPrev = document.querySelector(".testimonials__arrow--prev");
+
+const testimonialsNext = document.querySelector(".testimonials__arrow--next");
+
+if (testimonialsCarousel && testimonialsTrack) {
+  /* Cards originais */
+  const originalCards = [...testimonialsTrack.children];
+
+  /* Duplica os cards para criar o loop infinito */
+  originalCards.forEach((card) => {
+    const clone = card.cloneNode(true);
+
+    clone.setAttribute("aria-hidden", "true");
+
+    testimonialsTrack.appendChild(clone);
+  });
+
+  let isPaused = false;
+
+  let position = testimonialsCarousel.scrollLeft;
+
+  const speed = 0.6;
 
   /* ----------------------------------------------------------
-     Preferência de movimento reduzido.
-     Exposta em window.prefersReducedMotion para que os módulos
-     que vamos adicionar seção por seção (carrossel, CTA final,
-     onda vocal) consultem a mesma fonte, em vez de cada um
-     checar o media query de novo.
+     AUTOPLAY INFINITO
   ---------------------------------------------------------- */
-  const reducedMotionQuery = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  );
 
-  window.prefersReducedMotion = reducedMotionQuery.matches;
+  function autoplayTestimonials() {
+    if (!isPaused && !window.prefersReducedMotion) {
+      position += speed;
 
-  reducedMotionQuery.addEventListener("change", (event) => {
-    window.prefersReducedMotion = event.matches;
+      const halfway = testimonialsTrack.scrollWidth / 2;
+
+      if (position >= halfway) {
+        position -= halfway;
+      }
+
+      testimonialsCarousel.scrollLeft = position;
+    }
+
+    requestAnimationFrame(autoplayTestimonials);
+  }
+
+  requestAnimationFrame(() => {
+    position = testimonialsCarousel.scrollLeft;
+
+    autoplayTestimonials();
   });
 
   /* ----------------------------------------------------------
-     Placeholder — scroll reveal (IntersectionObserver)
-     Será implementado quando começarmos a Hero / A Crença,
-     que dependem de fade-in ao entrar no viewport. Deixado
-     comentado de propósito para não gerar código sem uso.
+     PAUSA AO PASSAR O MOUSE
   ---------------------------------------------------------- */
 
-  // const revealObserver = new IntersectionObserver((entries) => {
-  //   entries.forEach((entry) => {
-  //     if (entry.isIntersecting) {
-  //       entry.target.classList.add("is-visible");
-  //       revealObserver.unobserve(entry.target);
-  //     }
-  //   });
-  // }, { threshold: 0.2 });
-  //
-  // document.querySelectorAll("[data-reveal]").forEach((el) => {
-  //   revealObserver.observe(el);
-  // });
-})();
+  testimonialsCarousel.addEventListener("mouseenter", () => {
+    isPaused = true;
+  });
+
+  testimonialsCarousel.addEventListener("mouseleave", () => {
+    position = testimonialsCarousel.scrollLeft;
+    isPaused = false;
+  });
+
+  /* ----------------------------------------------------------
+     INTERAÇÃO MANUAL / MOBILE
+  ---------------------------------------------------------- */
+
+  testimonialsCarousel.addEventListener("pointerdown", () => {
+    isPaused = true;
+  });
+
+  testimonialsCarousel.addEventListener("pointerup", () => {
+    position = testimonialsCarousel.scrollLeft;
+
+    setTimeout(() => {
+      isPaused = false;
+    }, 1200);
+  });
+
+  testimonialsCarousel.addEventListener("pointercancel", () => {
+    position = testimonialsCarousel.scrollLeft;
+    isPaused = false;
+  });
+
+  testimonialsCarousel.addEventListener("scroll", () => {
+    if (isPaused) {
+      position = testimonialsCarousel.scrollLeft;
+    }
+  });
+
+  /* ----------------------------------------------------------
+     DISTÂNCIA DE UM CARD
+  ---------------------------------------------------------- */
+
+  function getCardDistance() {
+    const card = testimonialsTrack.querySelector(".testimonial-card");
+
+    if (!card) {
+      return 300;
+    }
+
+    const trackStyles = getComputedStyle(testimonialsTrack);
+
+    const gap = parseFloat(trackStyles.gap) || 0;
+
+    return card.offsetWidth + gap;
+  }
+
+  /* ----------------------------------------------------------
+     BOTÃO PRÓXIMO
+  ---------------------------------------------------------- */
+
+  testimonialsNext?.addEventListener("click", () => {
+    isPaused = true;
+
+    const distance = getCardDistance();
+
+    position = testimonialsCarousel.scrollLeft + distance;
+
+    testimonialsCarousel.scrollTo({
+      left: position,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => {
+      position = testimonialsCarousel.scrollLeft;
+
+      isPaused = false;
+    }, 1000);
+  });
+
+  /* ----------------------------------------------------------
+     BOTÃO ANTERIOR
+  ---------------------------------------------------------- */
+
+  testimonialsPrev?.addEventListener("click", () => {
+    isPaused = true;
+
+    const distance = getCardDistance();
+
+    position = testimonialsCarousel.scrollLeft - distance;
+
+    testimonialsCarousel.scrollTo({
+      left: position,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => {
+      position = testimonialsCarousel.scrollLeft;
+
+      isPaused = false;
+    }, 1000);
+  });
+}

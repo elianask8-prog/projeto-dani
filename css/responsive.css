@@ -1,18 +1,16 @@
 /* ============================================================
    RESPONSIVE.CSS — Base responsiva mobile-first
-   Mobile é o padrão (definido em style.css / tokens.css).
-   Aqui só elevamos escala tipográfica e o container conforme
-   a tela cresce. Layout específico de cada seção (grids
-   assimétricos, carrossel, etc.) entra aqui seção por seção,
-   conforme formos implementando.
 
-   Breakpoints do projeto:
-     - até 639px   → mobile (padrão, sem media query)
-     - 640px+      → tablet
-     - 1024px+     → desktop
+   Breakpoints:
+   - até 639px  → mobile
+   - 640px+     → tablet
+   - 1024px+    → desktop
    ============================================================ */
 
-/* ---- Tablet (640px+) ------------------------------------------- */
+/* ------------------------------------------------------------
+   TABLET — 640px+
+------------------------------------------------------------ */
+
 @media (min-width: 640px) {
   :root {
     --fs-display: 2.75rem;
@@ -25,7 +23,10 @@
   }
 }
 
-/* ---- Desktop (1024px+) ------------------------------------------ */
+/* ------------------------------------------------------------
+   DESKTOP — 1024px+
+------------------------------------------------------------ */
+
 @media (min-width: 1024px) {
   :root {
     --fs-display: 3.5rem;
@@ -36,5 +37,250 @@
   .section {
     padding-block: var(--space-2xl);
     padding-inline: var(--space-xl);
+  }
+  /* ---- Hero banner desktop ----------------------------------- */
+  .hero--banner {
+    background-size: cover;
+    background-position: center 30%;
+    background-color: var(--graphite-base);
+  }
+
+  .hero__content {
+    padding: var(--space-lg) var(--space-xl) 0;
+    position: relative;
+  }
+  .hero__bottom {
+    position: absolute;
+
+    left: var(--space-xl);
+    right: var(--space-xl);
+    bottom: 0px;
+
+    margin-top: 0;
+  }
+  .hero-message {
+    padding-block: var(--space-xl);
+    padding-inline: 2rem;
+  }
+
+  .hero-message .container {
+    max-width: none;
+    width: 100%;
+  }
+
+  .hero-message__headline {
+    max-width: none;
+    width: 100%;
+    font-size: 3.5rem;
+  }
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+  .hero-message__headline span {
+    display: block;
+    text-align: center;
+  }
+  .hero__scroll-cue {
+    margin-top: 0.6rem;
+  }
+  /* ---- Seção 2: A Crença ------------------------------------- */
+
+  .belief {
+    min-height: 85svh;
+  }
+
+  .belief__inner {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .belief__title {
+    max-width: 12ch;
+    font-size: 3.4rem;
+  }
+
+  .belief__text {
+    max-width: 52ch;
+    font-size: 1.125rem;
+  }
+  /* ---- Seção 3: A Transformação ----------------------------- */
+
+  .transformation__moment {
+    min-height: 100svh;
+  }
+
+  .transformation__text {
+    font-size: 4.25rem;
+    max-width: 15ch;
+  }
+
+  .transformation__wave svg {
+    height: 160px;
+  }
+  /* ---- Seção 4: Conheça a Dani ------------------------------ */
+
+  .about-dani__inner {
+    max-width: 980px;
+    margin-inline: auto;
+  }
+
+  .about-dani__intro {
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-dani__title {
+    max-width: 16ch;
+  }
+
+  .about-dani__video-wrap {
+    width: min(760px, 100%);
+    margin-inline: auto;
+    aspect-ratio: 16 / 9;
+  }
+  /* ---- Seção 5: Método Voz Livre ----------------------------- */
+
+  .method__inner {
+    max-width: 1000px;
+    margin-inline: auto;
+  }
+
+  .method__intro {
+    max-width: 650px;
+  }
+
+  .method__title {
+    font-size: 3.6rem;
+  }
+
+  .method__map {
+    min-height: 700px;
+  }
+
+  .method__wave svg {
+    height: 220px;
+  }
+
+  .method__pillar {
+    font-size: 1.55rem;
+    max-width: 230px;
+  }
+
+  .method__pillar--technique {
+    top: 5%;
+    left: 8%;
+  }
+
+  .method__pillar--musicality {
+    top: 20%;
+    right: 10%;
+  }
+
+  .method__pillar--science {
+    bottom: 16%;
+    left: 8%;
+  }
+
+  .method__pillar--interpretation {
+    bottom: 3%;
+    right: 14%;
+  }
+  /* ---- Seção 6: Mini Prova Social ---------------------------- */
+
+  .social-proof-mini {
+    min-height: 70svh;
+  }
+
+  .social-proof-mini__quote {
+    max-width: 42ch;
+    font-size: 2.7rem;
+  }
+  /* ---- Seção 7: Escolha sua Jornada ------------------------- */
+
+  .journeys__inner {
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+
+  .journeys__grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+    gap: var(--space-lg);
+  }
+
+  .journey-card {
+    min-height: 470px;
+    padding: var(--space-lg);
+  }
+
+  .journey-card--secondary {
+    margin-top: -32px;
+  }
+
+  .journey-card__title {
+    font-size: 2.3rem;
+  }
+
+  .journey-card__cta {
+    margin-top: auto;
+  }
+  /* ---- Seção 8: Depoimentos --------------------------------- */
+
+  .testimonials__inner {
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  .testimonial-card {
+    flex-basis: 340px;
+    min-height: 310px;
+    padding: var(--space-md);
+  }
+
+  .testimonial-card__quote {
+    font-size: 1.4rem;
+  }
+
+  .testimonials__controls {
+    justify-content: flex-end;
+  }
+
+  /* ---- Seção 9: CTA Final ----------------------------------- */
+
+  .final-cta {
+    min-height: 100svh;
+  }
+
+  .final-cta__inner {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .final-cta__title {
+    max-width: 14ch;
+    font-size: 4rem;
+  }
+
+  .final-cta__text {
+    font-size: 1.125rem;
+  }
+  /* ---- Seção 10: Rodapé ------------------------------------- */
+
+  .footer {
+    padding: var(--space-lg) var(--space-xl) var(--space-md);
+  }
+
+  .footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer__contact {
+    justify-content: flex-end;
+  }
+
+  .footer__bottom {
+    text-align: center;
   }
 }
