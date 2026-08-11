@@ -105,17 +105,46 @@
   }
   /* ---- Seção 3: A Transformação ----------------------------- */
 
-  .transformation__moment {
-    min-height: 100svh;
+  .transformation__inner {
+    max-width: 1150px;
+    margin-inline: auto;
+  }
+
+  .transformation__journey {
+    min-height: 760px;
   }
 
   .transformation__text {
-    font-size: 4.25rem;
-    max-width: 15ch;
+    font-size: 3.25rem;
+    max-width: none;
+    white-space: nowrap;
+  }
+  .transformation__step--one {
+    top: 4%;
+    left: 2%;
+    align-items: center;
+  }
+
+  .transformation__step--one .transformation__number {
+    width: 100%;
+    text-align: center;
+  }
+  .transformation__step--two .transformation__text {
+    font-size: clamp(2.2rem, 3vw, 3rem);
+  }
+
+  .transformation__step {
+    max-width: none;
+    width: max-content;
+  }
+
+  .transformation__step--three {
+    bottom: 3%;
+    left: 22%;
   }
 
   .transformation__wave svg {
-    height: 160px;
+    height: 300px;
   }
   /* ---- Seção 4: Conheça a Dani ------------------------------ */
 

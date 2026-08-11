@@ -615,66 +615,176 @@ body {
 }
 
 .transformation__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.transformation__intro {
+  text-align: center;
+}
+
+.transformation__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+
+  color: var(--gold-matte);
+}
+
+.transformation__journey {
   position: relative;
+
+  min-height: 720px;
 }
 
 .transformation__wave {
   position: absolute;
-  inset-inline: 0;
+
+  left: 0;
+  right: 0;
   top: 50%;
+
   transform: translateY(-50%);
+
   pointer-events: none;
-  opacity: 0.42;
+
+  opacity: 0.55;
 }
 
 .transformation__wave svg {
   width: 100%;
-  height: 120px;
+  height: 260px;
 }
 
 .transformation__wave path {
   fill: none;
+
   stroke: var(--amber);
-  stroke-width: 1.4;
+  stroke-width: 1.3;
+
   vector-effect: non-scaling-stroke;
   stroke-linecap: round;
 }
 
-.transformation__moment {
-  min-height: 85svh;
+.transformation__step {
+  position: absolute;
+
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  z-index: 1;
+  flex-direction: column;
+
+  gap: var(--space-xs);
+
+  max-width: 330px;
+}
+
+.transformation__number {
+  font-family: var(--font-body);
+
+  font-size: var(--fs-caption);
+  letter-spacing: 0.18em;
+
+  color: var(--gold-matte);
 }
 
 .transformation__text {
   font-family: var(--font-display);
-  font-weight: var(--fw-regular);
-  font-size: clamp(2rem, 8vw, 3.25rem);
-  line-height: 1.12;
-  max-width: 12ch;
+
+  font-size: 2.2rem;
+  line-height: 1.15;
+
   color: var(--white-warm);
 }
+.transformation__number--one {
+  position: absolute;
 
-.transformation__moment--one .transformation__text {
-  letter-spacing: 0.035em;
-  color: var(--white-warm);
-}
+  top: 2rem;
+  left: 50%;
 
-.transformation__moment--two .transformation__text {
-  font-weight: var(--fw-medium);
-  color: #e5d5b2;
-}
+  transform: translateX(-50%);
+  
 
-.transformation__moment--three .transformation__text {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.18em;
+
   color: var(--gold-matte);
-  text-shadow:
-    0 0 14px rgba(201, 162, 75, 0.16),
-    0 0 28px rgba(185, 122, 61, 0.1);
 }
+.transformation__number--one {
+  position: absolute;
+
+  top: 2rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.18em;
+
+  color: var(--gold-matte);
+}
+.transformation__step--two {
+  top: 38%;
+  right: 3%;
+
+  text-align: right;
+  align-items: flex-end;
+}
+
+.transformation__step--three {
+  bottom: 5%;
+  left: 18%;
+}
+
+.transformation__step--three .transformation__text {
+  color: var(--gold-matte);
+
+  text-shadow: 0 0 22px rgba(201, 162, 75, 0.12);
+}
+
+/* ------------------------------------------------------------
+   ANIMAÇÃO — SEÇÃO 3
+------------------------------------------------------------ */
+
+.transformation__step,
+.transformation__wave {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms var(--ease-standard),
+    transform 700ms var(--ease-standard);
+}
+
+.transformation__wave {
+  transform: translateY(-50%) scaleX(0.9);
+  transform-origin: left center;
+}
+
+.transformation__step.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.transformation__wave.is-visible {
+  opacity: 0.55;
+  transform: translateY(-50%) scaleX(1);
+}
+
+.transformation__step--two {
+  transition-delay: 180ms;
+}
+
+.transformation__step--three {
+  transition-delay: 360ms;
+}
+
+.transformation__wave {
+  transition-delay: 120ms;
+}
+
 /* ------------------------------------------------------------
    SEÇÃO 4 — CONHEÇA A DANI
 ------------------------------------------------------------ */

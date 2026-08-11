@@ -197,3 +197,39 @@ if (testimonialsCarousel && testimonialsTrack) {
     }, 1000);
   });
 }
+/* ------------------------------------------------------------
+   SCROLL REVEAL — SEÇÃO 3
+------------------------------------------------------------ */
+
+const transformationSection = document.querySelector(".transformation");
+
+if (transformationSection) {
+  const transformationItems = transformationSection.querySelectorAll(
+    ".transformation__step, .transformation__wave",
+  );
+
+  if (window.prefersReducedMotion) {
+    transformationItems.forEach((item) => {
+      item.classList.add("is-visible");
+    });
+  } else {
+    const transformationObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            transformationItems.forEach((item) => {
+              item.classList.add("is-visible");
+            });
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+      },
+    );
+
+    transformationObserver.observe(transformationSection);
+  }
+}
