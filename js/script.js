@@ -197,39 +197,73 @@ if (testimonialsCarousel && testimonialsTrack) {
     }, 1000);
   });
 }
+
 /* ------------------------------------------------------------
-   SCROLL REVEAL — SEÇÃO 3
+   REVEAL GLOBAL — SCROLL
 ------------------------------------------------------------ */
 
-const transformationSection = document.querySelector(".transformation");
+const revealElements = document.querySelectorAll(
+  ".reveal-up, .reveal-left, .reveal-right",
+);
 
-if (transformationSection) {
-  const transformationItems = transformationSection.querySelectorAll(
-    ".transformation__step, .transformation__wave",
-  );
-
+if (revealElements.length > 0) {
   if (window.prefersReducedMotion) {
-    transformationItems.forEach((item) => {
-      item.classList.add("is-visible");
+    revealElements.forEach((element) => {
+      element.classList.add("is-visible");
     });
   } else {
-    const transformationObserver = new IntersectionObserver(
+    const revealObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            transformationItems.forEach((item) => {
-              item.classList.add("is-visible");
-            });
+            entry.target.classList.add("is-visible");
 
+            /* anima somente uma vez */
             observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.25,
+        threshold: 0.2,
       },
     );
 
-    transformationObserver.observe(transformationSection);
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
   }
+}
+
+/* ------------------------------------------------------------
+   MENU MOBILE
+------------------------------------------------------------ */
+
+const menuToggle = document.querySelector(".hero-header__menu-toggle");
+
+const mainMenu = document.querySelector(".hero-header__nav");
+
+if (menuToggle && mainMenu) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mainMenu.classList.toggle("is-open");
+
+    menuToggle.classList.toggle("is-open", isOpen);
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Fechar menu" : "Abrir menu",
+    );
+  });
+
+  mainMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mainMenu.classList.remove("is-open");
+      menuToggle.classList.remove("is-open");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+
+      menuToggle.setAttribute("aria-label", "Abrir menu");
+    });
+  });
 }

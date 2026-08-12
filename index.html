@@ -40,16 +40,45 @@
               />
             </a>
 
-            <nav class="hero-header__nav" aria-label="Navegação principal">
+            <!-- Botão hambúrguer: aparece somente no mobile -->
+            <button
+              class="hero-header__menu-toggle"
+              type="button"
+              aria-label="Abrir menu"
+              aria-expanded="false"
+              aria-controls="menu-principal"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <nav
+              id="menu-principal"
+              class="hero-header__nav"
+              aria-label="Navegação principal"
+            >
               <a href="#hero">Início</a>
               <a href="#conheca-a-dani">Sobre</a>
               <a href="#escolha-sua-jornada">Aulas</a>
               <a href="#metodo">Método</a>
               <a href="#depoimentos">Depoimentos</a>
               <a href="#rodape">Contato</a>
+
+              <!-- CTA que aparece dentro do menu no celular -->
+              <a
+                href="#escolha-sua-jornada"
+                class="hero-header__cta hero-header__cta--mobile"
+              >
+                Agendar aula
+              </a>
             </nav>
 
-            <a href="#escolha-sua-jornada" class="hero-header__cta">
+            <!-- CTA normal do desktop -->
+            <a
+              href="#escolha-sua-jornada"
+              class="hero-header__cta hero-header__cta--desktop"
+            >
               Agendar aula
             </a>
           </div>
@@ -62,7 +91,7 @@
 
       <section class="hero-message" aria-label="Mensagem principal">
         <div class="container">
-          <h1 class="hero-message__headline text-display">
+          <h1 class="hero-message__headline text-display reveal-up">
             Talvez você não seja desafinado. Talvez apenas nunca tenha
             <span>recebido a orientação certa.</span>
           </h1>
@@ -76,13 +105,13 @@
         aria-labelledby="belief-title"
       >
         <div class="container belief__inner">
-          <p class="belief__eyebrow">Talvez a história seja outra.</p>
+          <p class="belief__eyebrow reveal-up">Talvez a história seja outra.</p>
 
-          <h2 id="belief-title" class="belief__title text-display">
+          <h2 id="belief-title" class="belief__title text-display reveal-up">
             E se o problema nunca tivesse sido a sua voz?
           </h2>
 
-          <p class="belief__text">
+          <p class="belief__text reveal-up">
             Afinar não é privilégio de poucos. É uma habilidade que pode ser
             desenvolvida com orientação, prática e consciência vocal.
           </p>
@@ -96,50 +125,46 @@
         class="section transformation"
         aria-labelledby="transformation-title"
       >
-        <div class="container transformation__inner">
-          <div class="transformation__intro">
-            <p class="transformation__eyebrow">
-              O que muda quando você encontra a sua voz?
-            </p>
+        <div class="transformation__intro">
+          <p class="transformation__eyebrow reveal-up">
+            O que muda quando você encontra a sua voz?
+          </p>
 
-            <h2 id="transformation-title" class="visually-hidden">
-              A transformação
-            </h2>
-          </div>
+          <h2 id="transformation-title" class="visually-hidden reveal-up">
+            A transformação
+          </h2>
+        </div>
 
-          <div class="transformation__journey">
-            <div class="transformation__wave" aria-hidden="true">
-              <svg viewBox="0 0 1200 320" preserveAspectRatio="none">
-                <path
-                  d="M0,170
+        <div class="transformation__journey">
+          <div class="transformation__wave" aria-hidden="true">
+            <svg viewBox="0 0 1200 320" preserveAspectRatio="none">
+              <path
+                d="M0,170
                C120,80 220,250 350,155
                S560,80 650,175
                S860,260 970,145
                S1120,90 1200,160"
-                />
-              </svg>
-            </div>
-
-            <article class="transformation__step transformation__step--one">
-              <span class="transformation__number"> 01 </span>
-
-              <p class="transformation__text">Cantar sem medo de errar.</p>
-            </article>
-
-            <article class="transformation__step transformation__step--two">
-              <span class="transformation__number">02</span>
-
-              <p class="transformation__text">
-                Terminar uma música do início ao fim com segurança.
-              </p>
-            </article>
-
-            <article class="transformation__step transformation__step--three">
-              <span class="transformation__number">03</span>
-
-              <p class="transformation__text">Sentir orgulho da própria voz.</p>
-            </article>
+              />
+            </svg>
           </div>
+
+          <article class="transformation__step transformation__step--one">
+            <p class="transformation__text reveal-up">
+              Cantar sem medo de errar.
+            </p>
+          </article>
+
+          <article class="transformation__step transformation__step--two">
+            <p class="transformation__text reveal-up">
+              Terminar uma música do início ao fim com segurança.
+            </p>
+          </article>
+
+          <article class="transformation__step transformation__step--three">
+            <p class="transformation__text reveal-up">
+              Sentir orgulho da própria voz.
+            </p>
+          </article>
         </div>
       </section>
       <!-- 4. Conheça a Dani — vídeo institucional sob demanda -->
@@ -150,15 +175,18 @@
       >
         <div class="container about-dani__inner">
           <div class="about-dani__intro">
-            <p class="about-dani__eyebrow">Conheça a Dani</p>
+            <p class="about-dani__eyebrow reveal-up">Conheça a Dani</p>
 
-            <h2 id="about-dani-title" class="about-dani__title text-display">
+            <h2
+              id="about-dani-title"
+              class="about-dani__title text-display reveal-up"
+            >
               Toda voz tem uma história.
               <span>Esta é a minha.</span>
             </h2>
           </div>
 
-          <div class="about-dani__video-wrap">
+          <div class="about-dani__video-wrap reveal-up">
             <video
               class="about-dani__video"
               poster="assets/images/video-cover.jpg"
@@ -187,13 +215,13 @@
       >
         <div class="container method__inner">
           <div class="method__intro">
-            <p class="method__eyebrow">O Método</p>
+            <p class="method__eyebrow reveal-up">O Método</p>
 
-            <h2 id="method-title" class="method__title text-display">
+            <h2 id="method-title" class="method__title text-display reveal-up">
               Método Voz Livre
             </h2>
 
-            <p class="method__description">
+            <p class="method__description reveal-up">
               Um caminho que une técnica, ciência e sensibilidade para libertar
               a sua voz.
             </p>
@@ -213,26 +241,28 @@
               </svg>
             </div>
 
-            <div class="method__pillar method__pillar--technique">
+            <div class="method__pillar method__pillar--technique reveal-up">
               <span>Técnica vocal</span>
             </div>
 
-            <div class="method__pillar method__pillar--musicality">
+            <div class="method__pillar method__pillar--musicality reveal-up">
               <span>Musicalidade</span>
             </div>
 
-            <div class="method__pillar method__pillar--science">
+            <div class="method__pillar method__pillar--science reveal-up">
               <span>Ciência da voz</span>
               <small>
                 Estudos em Fonoaudiologia aplicados ao desenvolvimento vocal.
               </small>
             </div>
 
-            <div class="method__pillar method__pillar--interpretation">
+            <div
+              class="method__pillar method__pillar--interpretation reveal-up"
+            >
               <span>Interpretação</span>
             </div>
 
-            <div class="method__pillar method__pillar--identity">
+            <div class="method__pillar method__pillar--identity reveal-up">
               <span>Identidade vocal</span>
             </div>
           </div>
@@ -252,14 +282,12 @@
           <blockquote class="social-proof-mini__quote">
             <span class="social-proof-mini__mark" aria-hidden="true">“</span>
 
-            <p>
+            <p class="reveal-up">
               Eu sempre tive muita insegurança com a minha voz. Com a Dani,
               comecei a enxergar meu potencial de outra forma.
             </p>
 
-            <footer class="social-proof-mini__author">
-              — Depoimento demonstrativo
-            </footer>
+            <footer class="social-proof-mini__author"></footer>
           </blockquote>
         </div>
       </section>
@@ -272,17 +300,20 @@
       >
         <div class="container journeys__inner">
           <div class="journeys__intro">
-            <h2 id="journeys-title" class="journeys__title text-heading">
+            <h2
+              id="journeys-title"
+              class="journeys__title text-heading reveal-up"
+            >
               Toda grande transformação começa com o primeiro passo.
             </h2>
 
-            <p class="journeys__description">
+            <p class="journeys__description reveal-up">
               Escolha o caminho que melhor representa o momento da sua voz hoje.
             </p>
           </div>
 
           <div class="journeys__grid">
-            <article class="journey-card journey-card--primary">
+            <article class="journey-card journey-card--primary reveal-up">
               <span class="journey-card__label">Jornada 01</span>
 
               <h3 class="journey-card__title">Do Zero ao Canto em 7 Dias</h3>
@@ -337,11 +368,11 @@
       >
         <div class="container testimonials__inner">
           <div class="testimonials__intro">
-            <p class="testimonials__eyebrow">Depoimentos</p>
+            <p class="testimonials__eyebrow reveal-up">Depoimentos</p>
 
             <h2
               id="testimonials-title"
-              class="testimonials__title text-heading"
+              class="testimonials__title text-heading reveal-up"
             >
               Vozes que encontraram seu caminho.
             </h2>
@@ -475,9 +506,7 @@
                   “Ganhei segurança para cantar na frente de outras pessoas e
                   passei a confiar muito mais no que consigo fazer.”
                 </p>
-                <footer class="testimonial-card__author">
-                  Depoimento demonstrativo
-                </footer>
+                <footer class="testimonial-card__author"></footer>
               </article>
             </div>
           </div>
@@ -499,10 +528,6 @@
               →
             </button>
           </div>
-
-          <p class="testimonials__notice">
-            Conteúdo demonstrativo — será substituído por depoimentos reais.
-          </p>
         </div>
       </section>
       <!-- 9. CTA Final — fechamento da jornada -->
@@ -512,17 +537,20 @@
         aria-labelledby="final-cta-title"
       >
         <div class="container final-cta__inner">
-          <p class="final-cta__eyebrow">Sua voz começa aqui</p>
+          <p class="final-cta__eyebrow reveal-up">Sua voz começa aqui</p>
 
-          <h2 id="final-cta-title" class="final-cta__title text-display">
+          <h2
+            id="final-cta-title"
+            class="final-cta__title text-display reveal-up"
+          >
             Sua voz não precisa ser outra. Ela precisa ser descoberta.
           </h2>
 
-          <p class="final-cta__text">
+          <p class="final-cta__text reveal-up">
             O primeiro passo não é cantar perfeito. É começar.
           </p>
 
-          <a href="#escolha-sua-jornada" class="btn-final">
+          <a href="#escolha-sua-jornada" class="btn-final reveal-up">
             Quero começar minha jornada
           </a>
         </div>

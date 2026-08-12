@@ -86,22 +86,54 @@
   /* ---- Seção 2: A Crença ------------------------------------- */
 
   .belief {
-    min-height: 85svh;
+    min-height: 75svh;
+    display: flex;
+    align-items: center;
   }
 
   .belief__inner {
-    max-width: 900px;
+    max-width: 1200px;
     margin-inline: auto;
+
+    align-items: center;
+    text-align: center;
+  }
+
+  .belief__eyebrow {
+    text-align: center;
   }
 
   .belief__title {
-    max-width: 12ch;
-    font-size: 3.4rem;
+    max-width: none;
+    width: 100%;
+
+    font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+    white-space: nowrap;
+
+    text-align: center;
   }
 
   .belief__text {
-    max-width: 52ch;
-    font-size: 1.125rem;
+    max-width: 760px;
+    margin-inline: auto;
+
+    font-size: 1.15rem;
+    line-height: 1.8;
+
+    text-align: center;
+  }
+
+  .belief__inner::after {
+    content: "";
+    display: block;
+
+    width: 70px;
+    height: 1px;
+
+    margin-top: 2rem;
+
+    background: var(--gold-matte);
+    opacity: 0.7;
   }
   /* ---- Seção 3: A Transformação ----------------------------- */
 
@@ -111,38 +143,57 @@
   }
 
   .transformation__journey {
+    position: relative;
     min-height: 760px;
   }
 
+  /* Todas as frases usam o centro da seção como referência */
+  .transformation__step {
+    left: 50%;
+    right: auto;
+
+    width: max-content;
+    max-width: none;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+    align-items: center;
+  }
+
+  /* Tamanho geral */
   .transformation__text {
     font-size: 3.25rem;
     max-width: none;
     white-space: nowrap;
   }
+
+  /* Frase 1 */
   .transformation__step--one {
     top: 4%;
-    left: 2%;
+    bottom: auto;
+  }
+
+  /* Frase 2 */
+  .transformation__step--two {
+    top: 40%;
+    bottom: auto;
+
+    text-align: center;
     align-items: center;
   }
 
-  .transformation__step--one .transformation__number {
-    width: 100%;
-    text-align: center;
-  }
   .transformation__step--two .transformation__text {
     font-size: clamp(2.2rem, 3vw, 3rem);
   }
 
-  .transformation__step {
-    max-width: none;
-    width: max-content;
-  }
-
+  /* Frase 3 */
   .transformation__step--three {
+    top: auto;
     bottom: 3%;
-    left: 22%;
   }
 
+  /* Onda */
   .transformation__wave svg {
     height: 300px;
   }
@@ -311,5 +362,39 @@
 
   .footer__bottom {
     text-align: center;
+  }
+  /* ---------- Header desktop ---------- */
+
+  .hero-header__menu-toggle {
+    display: none;
+  }
+
+  .hero-header__nav {
+    position: static;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 2rem;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: 0;
+
+    opacity: 1;
+    visibility: visible;
+
+    transform: none;
+  }
+
+  .hero-header__cta--desktop {
+    display: inline-flex;
+  }
+
+  .hero-header__cta--mobile {
+    display: none;
   }
 }
